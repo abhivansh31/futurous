@@ -9,7 +9,7 @@ const app = express();
 // CORS is used to handle cross origin requests
 app.use(cors(
     {
-        origin: ["https://futurous-8x3n.vercel.app"],
+        origin: "https://futurous-8x3n.vercel.app",
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true,
     }
@@ -29,6 +29,6 @@ dotenv.config({
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+app.listen("/"), () => {
+  console.log("Welcome to the futurous backend server!");
+};
