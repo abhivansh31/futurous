@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const PORT = import.meta.env.PORT || 3000;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_BASE_URL;
 
 const CreateMessage = () => {
   const [message, setMessage] = useState("");
@@ -27,7 +27,7 @@ const CreateMessage = () => {
     try {
       const userId = localStorage.getItem("userId");
       const response = await axios.post(
-        `http://localhost:${PORT}/api/messages`,
+        `${BACKEND_URL}/api/messages`,
         {
           message,
           deliveryDate,

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const PORT = import.meta.env.PORT || 3000;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_BASE_URL;
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post(`http://localhost:${PORT}/api/auth/login`, {
+      const res = await axios.post(`${BACKEND_URL}/api/auth/login`, {
         username,
         password,
       });

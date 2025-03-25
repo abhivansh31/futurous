@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_BASE_URL;
+
 const UpdateMessage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -13,7 +15,7 @@ const UpdateMessage = () => {
     const fetchMessage = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/messages/${id}`
+          `${BACKEND_URL}/api/messages/${id}`
         );
         setMessage(response.data.message);
         setDeliveryDate(response.data.deliveryDate);
@@ -37,7 +39,7 @@ const UpdateMessage = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/messages/${id}`,
+        `${BACKEND_URL}/api/messages/${id}`,
         {
           message,
           deliveryDate,

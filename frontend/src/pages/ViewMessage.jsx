@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_BASE_URL;
+
 const ViewMessage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -15,7 +17,7 @@ const ViewMessage = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/messages/${id}`
+          `${BACKEND_URL}/api/messages/${id}`
         );
         setMessage(response.data.message);
         setIsLocked(response.data.isLocked);
@@ -68,7 +70,7 @@ const ViewMessage = () => {
           <button
             onClick={async () => {
               try {
-                await axios.delete(`http://localhost:3000/api/messages/${id}`);
+                await axios.delete(`${BACKEND_URL}/api/messages/${id}`);
                 navigate("/dashboard");
               } catch (error) {
                 console.error("Error deleting message:", error);
