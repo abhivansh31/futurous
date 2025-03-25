@@ -29,6 +29,6 @@ dotenv.config({
 
 const port = process.env.PORT || 3000;
 
-app.listen("/"), () => {
-  console.log("Welcome to the futurous backend server!");
+app.listen("/"), (req,res) => {
+  res.send("Welcome to the futurous backend server!");
 };
