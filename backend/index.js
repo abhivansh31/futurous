@@ -6,14 +6,18 @@ import authRouter from "./routes/authRoutes.js";
 import msgRouter from "./routes/msgRoutes.js";
 const app = express();
 
+dotenv.config({
+  path: "./.env",
+});
+
 // CORS is used to handle cross origin requests
-app.use(cors(
-    {
-        origin: "https://futurous-8x3n.vercel.app",
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        credentials: true,
-    }
-));
+app.use(
+  cors({
+    origin: process.env.FRONTED_URL,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 // This is used to decode the incoming request with JSON messages.
 app.use(express.json());
@@ -23,12 +27,11 @@ dbConnection();
 app.use("/api/auth", authRouter);
 app.use("/api/messages", msgRouter);
 
-dotenv.config({
-  path: "./.env",
+app.get("/"),
+  (req, res) => {
+    res.send("Welcome to the futurous backend server!");
+  };
+
+app.listen(`${process.env.FRONTED_URL}/`, () => {
+  console.log("Server is running");
 });
-
-const port = process.env.PORT || 3000;
-
-app.listen("/"), (req,res) => {
-  res.send("Welcome to the futurous backend server!");
-};
