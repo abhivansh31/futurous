@@ -9,7 +9,7 @@ const app = express();
 // CORS is used to handle cross origin requests
 app.use(cors(
     {
-        origin: ["https://futurous-8x3n.vercel.app/"],
+        origin: ["https://futurous-8x3n.vercel.app"],
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true,
     }
