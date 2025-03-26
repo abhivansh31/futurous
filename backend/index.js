@@ -16,7 +16,7 @@ app.options("*", cors());
 // CORS is used to handle cross origin requests
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
