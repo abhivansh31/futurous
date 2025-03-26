@@ -32,6 +32,6 @@ app.get("/"),
     res.send("Welcome to the futurous backend server!");
   };
 
-app.listen(`${process.env.FRONTED_URL}/`, () => {
+app.listen(`${process.env.PORT}/`, () => {
   console.log("Server is running");
 });
