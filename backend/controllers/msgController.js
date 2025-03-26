@@ -18,7 +18,7 @@ export const createMessage = async (req, res) => {
 };
 
 export const getMessages = async (req, res) => {
-  const { userId } = req.query;
+  const { userId } = req.params;
 
   try {
     const messages = await Message.find({ userId });

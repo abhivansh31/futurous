@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_BASE_URL;
+const VITE_APP_BACKEND_BASE_URL = import.meta.env.VITE_APP_BACKEND_BASE_URL;
 
 const ViewMessage = () => {
   const { id } = useParams();
@@ -17,7 +17,7 @@ const ViewMessage = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `${BACKEND_URL}/api/messages/${id}`
+          `${VITE_APP_BACKEND_BASE_URL}/api/messages/${id}`
         );
         setMessage(response.data.message);
         setIsLocked(response.data.isLocked);

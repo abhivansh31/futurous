@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_BASE_URL;
+const VITE_APP_BACKEND_BASE_URL = import.meta.env.VITE_APP_BACKEND_BASE_URL;
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post(`${BACKEND_URL}/api/auth/login`, {
+      const res = await axios.post(`${VITE_APP_BACKEND_BASE_URL}/api/auth/login`, {
         username,
         password,
       });

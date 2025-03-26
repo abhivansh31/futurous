@@ -5,6 +5,7 @@ import { dbConnection } from "./config/db.js";
 import authRouter from "./routes/authRoutes.js";
 import msgRouter from "./routes/msgRoutes.js";
 const app = express();
+const PORT = process.env.PORT ;
 
 dotenv.config({
   path: "./.env",
@@ -16,7 +17,7 @@ app.options("*", cors());
 // CORS is used to handle cross origin requests
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: ["https://futurous-frontend.vercel.app", "htpp://localhost:3000"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -34,10 +35,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to the futurous backend server!");
 });
 
-app.listen(process.env.FRONTEND_URL, () => {
+app.listen(PORT, () => {
   console.log("Server is running");
 });
 
-app.listen(process.env.PORT, () => {
-  console.log("Server is running");
-});

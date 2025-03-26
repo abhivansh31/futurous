@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_BASE_URL;
+const VITE_APP_BACKEND_BASE_URL = import.meta.env.VITE_APP_BACKEND_BASE_URL;
 
 const Dashboard = () => {
   const [messages, setMessages] = useState([]);
@@ -13,7 +13,7 @@ const Dashboard = () => {
 
     try {
       const response = await axios.get(
-        `${BACKEND_URL}/api/messages?userId=${userId}`
+        `${VITE_APP_BACKEND_BASE_URL}/api/messages?userId=${userId}`
       );
       const messagesWithLockStatus = response.data.map((msg) => {
         const isLocked = msg.isLocked;
@@ -44,7 +44,7 @@ const Dashboard = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${BACKEND_URL}/api/messages/${id}`);
+      await axios.delete(`${VITE_APP_BACKEND_BASE_URL}/api/messages/${id}`);
       setMessages(messages.filter((msg) => msg._id !== id));
     } catch (error) {
       console.error("Error deleting message:", error);

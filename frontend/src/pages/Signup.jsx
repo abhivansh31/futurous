@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_BASE_URL;
+const VITE_APP_BACKEND_BASE_URL = import.meta.env.VITE_APP_BACKEND_BASE_URL;
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ const Signup = () => {
 
   const handleSignup = async () => {
     try {
-      await axios.post(`${BACKEND_URL}/api/auth/signup`, {
+      await axios.post(`${VITE_APP_BACKEND_BASE_URL}/api/auth/signup`, {
         email,
         username,
         password,
