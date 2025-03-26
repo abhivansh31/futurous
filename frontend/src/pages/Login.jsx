@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post(`${VITE_BACKEND_BASE_URL}/api/auth/login`, {
+      const res = await axios.post(`${VITE_BACKEND_BASE_URL}/api/auth`, {
         username,
         password,
       });

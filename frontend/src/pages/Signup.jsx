@@ -12,7 +12,7 @@ const Signup = () => {
 
   const handleSignup = async () => {
     try {
-      await axios.post(`${VITE_BACKEND_BASE_URL}/api/auth/signup`, {
+      await axios.post(`${VITE_BACKEND_BASE_URL}/api/auth`, {
         email,
         username,
         password,
