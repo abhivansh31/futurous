@@ -16,9 +16,9 @@ app.options("*", cors());
 // CORS is used to handle cross origin requests
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
+    // origin: process.env.FRONTEND_URL,
+    // methods: ["GET", "POST", "PUT", "DELETE"],
+    // credentials: true,
   })
 );
 
@@ -34,6 +34,6 @@ app.get("/", (req, res) => {
   res.send("Welcome to the futurous backend server!");
 });
 
-app.listen(process.env.FRO, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server is running");
 });
