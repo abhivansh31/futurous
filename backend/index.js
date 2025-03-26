@@ -37,3 +37,7 @@ app.get("/", (req, res) => {
 app.listen(process.env.FRONTEND_URL, () => {
   console.log("Server is running");
 });
+
+app.listen(process.env.PORT, () => {
+  console.log("Server is running");
+});
