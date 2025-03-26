@@ -17,7 +17,7 @@ app.options("*", cors());
 // CORS is used to handle cross origin requests
 app.use(
   cors({
-    origin: ["https://futurous-frontend.vercel.app", "htpp://localhost:3000"],
+    origin: ["https://futurous.vercel.app", "htpp://localhost:3000"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
