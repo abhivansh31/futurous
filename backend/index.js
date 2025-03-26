@@ -10,6 +10,9 @@ dotenv.config({
   path: "./.env",
 });
 
+// Enable pre-flight across-the-board
+app.options("*", cors());
+
 // CORS is used to handle cross origin requests
 app.use(
   cors({
