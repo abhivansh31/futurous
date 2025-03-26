@@ -13,7 +13,7 @@ dotenv.config({
 // CORS is used to handle cross origin requests
 app.use(
   cors({
-    origin: process.env.FRONTED_URL,
+    origin: process.env.FRONTEND_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -27,11 +27,10 @@ dbConnection();
 app.use("/api/auth", authRouter);
 app.use("/api/messages", msgRouter);
 
-app.get("/"),
-  (req, res) => {
-    res.send("Welcome to the futurous backend server!");
-  };
+app.get("/", (req, res) => {
+  res.send("Welcome to the futurous backend server!");
+});
 
-app.listen(`${process.env.PORT}/`, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server is running");
 });
